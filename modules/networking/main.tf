@@ -1,5 +1,7 @@
 resource "aws_vpc" "this" {
-  cidr_block           = var.vpc_cidr
+
+  cidr_block = var.vpc_cidr
+
   enable_dns_support   = true
   enable_dns_hostnames = true
 
@@ -9,6 +11,7 @@ resource "aws_vpc" "this" {
 }
 
 resource "aws_internet_gateway" "this" {
+
   vpc_id = aws_vpc.this.id
 
   tags = {
@@ -47,13 +50,13 @@ resource "aws_eip" "nat" {
 
   domain = "vpc"
 
-  tags = {
-    Name = "production-nat-eip"
-  }
-
   depends_on = [
     aws_internet_gateway.this
   ]
+
+  tags = {
+    Name = "production-nat-eip"
+  }
 }
 
 resource "aws_nat_gateway" "this" {
@@ -65,10 +68,6 @@ resource "aws_nat_gateway" "this" {
   tags = {
     Name = "production-nat"
   }
-
-  depends_on = [
-    aws_internet_gateway.this
-  ]
 }
 
 resource "aws_route_table" "public" {
@@ -76,6 +75,7 @@ resource "aws_route_table" "public" {
   vpc_id = aws_vpc.this.id
 
   route {
+
     cidr_block = "0.0.0.0/0"
 
     gateway_id = aws_internet_gateway.this.id
@@ -100,6 +100,7 @@ resource "aws_route_table" "private" {
   vpc_id = aws_vpc.this.id
 
   route {
+
     cidr_block = "0.0.0.0/0"
 
     nat_gateway_id = aws_nat_gateway.this.id

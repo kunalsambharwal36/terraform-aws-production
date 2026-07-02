@@ -1,5 +1,18 @@
+# Terraform
 **/.terraform/*
 *.tfstate
 *.tfstate.*
-crash.log
 *.tfplan
+crash.log
+
+# Keep dependency lock file
+!.terraform.lock.hcl
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
