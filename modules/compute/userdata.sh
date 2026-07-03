@@ -12,5 +12,5 @@ usermod -aG docker ec2-user
 
 docker run -d \
   --name product-service \
-  -p 80:8080 \
+  -p 80:8000 \
   ${docker_image}
