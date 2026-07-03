@@ -37,6 +37,11 @@ module "compute" {
   ec2_sg_id = module.security.ec2_sg_id
 
   target_group_arn = module.alb.target_group_arn
+
+  db_endpoint = module.database.db_endpoint
+  db_username = "postgres"
+  db_password = "Cloudshop@123"
+
 }
 
 module "database" {

@@ -21,3 +21,15 @@ variable "ec2_sg_id" {
 variable "target_group_arn" {
   type = string
 }
+
+variable "db_endpoint" {
+  type = string
+}
+
+variable "db_username" {
+  type = string
+}
+
+variable "db_password" {
+  type = string
+}

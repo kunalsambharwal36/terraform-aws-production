@@ -11,8 +11,12 @@ resource "aws_launch_template" "this" {
   ]
 
   user_data = base64encode(
-    templatefile("${path.module}/userdata.sh", {
-      docker_image = var.docker_image
+  templatefile("${path.module}/userdata.sh", {
+    docker_image = var.docker_image
+    db_endpoint  = var.db_endpoint
+    db_username  = var.db_username
+    db_password  = var.db_password
+  
     })
   )
 
