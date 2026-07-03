@@ -40,7 +40,7 @@ module "compute" {
 
   db_endpoint = module.database.db_endpoint
   db_username = "postgres"
-  db_password = "Cloudshop@123"
+  db_password = "Cloudshop123"
 
 }
 
