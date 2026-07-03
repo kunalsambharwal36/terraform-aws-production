@@ -27,7 +27,7 @@ resource "aws_db_instance" "this" {
 
   username = "postgres"
 
-  password = "Cloudshop@123"
+  password = "Cloudshop123"
 
   db_subnet_group_name = aws_db_subnet_group.this.name
 
