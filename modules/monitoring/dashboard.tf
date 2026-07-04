@@ -23,7 +23,7 @@ resource "aws_cloudwatch_dashboard" "this" {
               "AWS/ApplicationELB",
               "RequestCount",
               "LoadBalancer",
-              var.alb_name
+              var.alb_arn_suffix
             ]
           ],
 
@@ -51,7 +51,7 @@ resource "aws_cloudwatch_dashboard" "this" {
               "AWS/ApplicationELB",
               "TargetResponseTime",
               "LoadBalancer",
-              var.alb_name
+              var.alb_arn_suffix
             ]
           ],
 
