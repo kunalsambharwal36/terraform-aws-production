@@ -55,7 +55,7 @@ resource "aws_cloudwatch_dashboard" "this" {
             ]
           ],
 
-          "period" : 300,
+          "period" : 60,
           "stat" : "Average",
           "region" : var.region,
           "title" : "ALB Response Time"
@@ -84,7 +84,7 @@ resource "aws_cloudwatch_dashboard" "this" {
             ]
           ],
 
-          "period" : 300,
+          "period" : 60,
           "stat" : "Average",
           "region" : var.region,
           "title" : "RDS CPU"
@@ -113,7 +113,7 @@ resource "aws_cloudwatch_dashboard" "this" {
             ]
           ],
 
-          "period" : 300,
+          "period" : 60,
           "stat" : "Average",
           "region" : var.region,
           "title" : "Database Connections"
