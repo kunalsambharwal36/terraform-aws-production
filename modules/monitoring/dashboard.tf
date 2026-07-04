@@ -119,7 +119,158 @@ resource "aws_cloudwatch_dashboard" "this" {
           "title" : "Database Connections"
         }
       }
+       {
+        "type": "metric",
+        "x": 0,
+        "y": 12,
+        "width": 12,
+        "height": 6,
 
+        "properties": {
+            "metrics": [
+            [
+                "AWS/ApplicationELB",
+                "HealthyHostCount",
+                "TargetGroup",
+                var.target_group_arn_suffix,
+                "LoadBalancer",
+                var.alb_arn_suffix
+            ]
+            ],
+
+            "period": 60,
+            "stat": "Average",
+            "region": var.region,
+            "title": "Healthy Hosts"
+        }
+        }
+    {
+  "type": "metric",
+  "x": 12,
+  "y": 12,
+  "width": 12,
+  "height": 6,
+
+  "properties": {
+
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "UnHealthyHostCount",
+        "TargetGroup",
+        var.target_group_arn_suffix,
+        "LoadBalancer",
+        var.alb_arn_suffix
+      ]
+    ],
+
+    "period": 60,
+    "stat": "Average",
+    "region": var.region,
+    "title": "UnHealthy Hosts"
+  }
+}
+{
+  "type": "metric",
+  "x": 0,
+  "y": 18,
+  "width": 12,
+  "height": 6,
+
+  "properties": {
+
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_ELB_5XX_Count",
+        "LoadBalancer",
+        var.alb_arn_suffix
+      ]
+    ],
+
+    "period": 60,
+    "stat": "Sum",
+    "region": var.region,
+    "title": "ALB 5XX Errors"
+  }
+}
+
+{
+  "type": "metric",
+  "x": 12,
+  "y": 18,
+  "width": 12,
+  "height": 6,
+
+  "properties": {
+
+    "metrics": [
+      [
+        "AWS/ApplicationELB",
+        "HTTPCode_Target_5XX_Count",
+        "TargetGroup",
+        var.target_group_arn_suffix,
+        "LoadBalancer",
+        var.alb_arn_suffix
+      ]
+    ],
+
+    "period": 60,
+    "stat": "Sum",
+    "region": var.region,
+    "title": "Application 5XX Errors"
+  }
+}
+
+{
+  "type": "metric",
+  "x": 0,
+  "y": 24,
+  "width": 12,
+  "height": 6,
+
+  "properties": {
+
+    "metrics": [
+      [
+        "AWS/AutoScaling",
+        "GroupDesiredCapacity",
+        "AutoScalingGroupName",
+        var.asg_name
+      ]
+    ],
+
+    "period": 60,
+    "stat": "Average",
+    "region": var.region,
+    "title": "Desired Capacity"
+  }
+}
+
+{
+  "type": "metric",
+  "x": 12,
+  "y": 24,
+  "width": 12,
+  "height": 6,
+
+  "properties": {
+
+    "metrics": [
+      [
+        "AWS/AutoScaling",
+        "GroupInServiceInstances",
+        "AutoScalingGroupName",
+        var.asg_name
+      ]
+    ],
+
+    "period": 60,
+    "stat": "Average",
+    "region": var.region,
+    "title": "In Service Instances"
+  }
+}
     ]
   })
 }
