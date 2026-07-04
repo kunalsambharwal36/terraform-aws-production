@@ -52,3 +52,9 @@ module "database" {
 
   rds_sg_id = module.security.rds_sg_id
 }
+
+module "monitoring" {
+
+  source = "../../modules/monitoring"
+
+}
