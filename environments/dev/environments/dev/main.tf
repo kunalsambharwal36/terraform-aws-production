@@ -57,12 +57,11 @@ module "monitoring" {
 
   source = "../../modules/monitoring"
 
-  environment = "dev"
-  region      = var.aws_region
+  environment       = "dev"
+  region            = var.aws_region
 
-  alb_arn_suffix          = module.alb.lb_arn_suffix
-  target_group_arn_suffix = module.alb.target_group_arn_suffix
-
-  asg_name      = module.compute.asg_name
-  db_identifier = module.database.db_identifier
+  alb_name          = module.alb.lb_name
+  target_group_name = module.alb.target_group_name
+  asg_name          = module.compute.asg_name
+  db_identifier     = module.database.db_identifier
 }
