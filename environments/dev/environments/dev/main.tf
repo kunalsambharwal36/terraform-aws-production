@@ -57,8 +57,8 @@ module "monitoring" {
 
   source = "../../modules/monitoring"
 
-  environment       = "dev"
-  region            = var.aws_region
+  environment = "dev"
+  region      = var.aws_region
 
   alb_name          = module.alb.lb_name
   target_group_name = module.alb.target_group_name

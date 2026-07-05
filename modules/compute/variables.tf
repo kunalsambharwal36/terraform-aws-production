@@ -33,3 +33,8 @@ variable "db_username" {
 variable "db_password" {
   type = string
 }
+
+variable "instance_profile_name" {
+
+  type = string
+}

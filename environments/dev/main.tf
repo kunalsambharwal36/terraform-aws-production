@@ -26,11 +26,11 @@ module "alb" {
 
 module "compute" {
 
-  source = "../../modules/compute"
-
-  instance_name = var.instance_name
-  instance_type = var.instance_type
-  docker_image  = var.docker_image
+  source                = "../../modules/compute"
+  instance_profile_name = module.iam.instance_profile_name
+  instance_name         = var.instance_name
+  instance_type         = var.instance_type
+  docker_image          = var.docker_image
 
   public_subnet_ids = module.networking.public_subnet_ids
 
@@ -65,4 +65,9 @@ module "monitoring" {
 
   asg_name      = module.compute.asg_name
   db_identifier = module.database.db_identifier
+}
+
+module "iam" {
+
+  source = "../../modules/iam"
 }

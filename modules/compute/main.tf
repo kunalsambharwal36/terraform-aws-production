@@ -6,6 +6,11 @@ resource "aws_launch_template" "this" {
 
   instance_type = var.instance_type
 
+  iam_instance_profile {
+
+    name = var.instance_profile_name
+  }
+
   vpc_security_group_ids = [
     var.ec2_sg_id
   ]
