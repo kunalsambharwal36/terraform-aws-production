@@ -50,7 +50,10 @@ jobs:
           framework: terraform
           quiet: true
           soft_fail: false
-    
+      - name: Run Gitleaks Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Terraform Plan
         run: terraform plan -no-color
