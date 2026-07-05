@@ -43,6 +43,14 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+      - name: Run Checkov Scan
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: environments/dev
+          framework: terraform
+          quiet: true
+          soft_fail: false
+    
 
       - name: Terraform Plan
         run: terraform plan -no-color
