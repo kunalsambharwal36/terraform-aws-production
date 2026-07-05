@@ -1,0 +1,29 @@
+name: Terraform CD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+
+    name: Deploy Infrastructure
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Terraform Plan
+        uses: actions/download-artifact@v4
+        with:
+          name: terraform-plan
+          path: environments/dev
+
+      - name: Show Downloaded Files
+        run: ls -la environments/dev
+
+      - name: Placeholder Deployment
+        run: |
+          echo "Terraform Apply will be implemented when using a permanent AWS account."
