@@ -15,7 +15,7 @@ resource "aws_db_instance" "this" {
 
   engine = "postgres"
 
-  engine_version = "16.9"
+  engine_version = "16.13"
 
   instance_class = "db.t3.micro"
 
