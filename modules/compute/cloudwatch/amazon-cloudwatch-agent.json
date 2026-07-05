@@ -1,0 +1,53 @@
+{
+  "metrics": {
+    "namespace": "CloudShop",
+    "append_dimensions": {
+      "InstanceId": "${aws:InstanceId}"
+    },
+    "metrics_collected": {
+      "mem": {
+        "measurement": [
+          "mem_used_percent"
+        ]
+      },
+      "disk": {
+        "measurement": [
+          "used_percent"
+        ],
+        "resources": [
+          "*"
+        ]
+      },
+      "swap": {
+        "measurement": [
+          "swap_used_percent"
+        ]
+      }
+    }
+  },
+
+  "logs": {
+
+    "logs_collected": {
+
+      "files": {
+
+        "collect_list": [
+
+          {
+            "file_path": "/var/log/messages",
+            "log_group_name": "cloudshop-system",
+            "log_stream_name": "{instance_id}"
+          },
+
+          {
+            "file_path": "/var/log/cloud-init.log",
+            "log_group_name": "cloudshop-cloudinit",
+            "log_stream_name": "{instance_id}"
+          }
+
+        ]
+      }
+    }
+  }
+}
