@@ -14,6 +14,10 @@ resource "aws_launch_template" "this" {
   vpc_security_group_ids = [
     var.ec2_sg_id
   ]
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+  }
 
   user_data = base64encode(
     templatefile("${path.module}/userdata.sh", {
