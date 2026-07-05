@@ -21,6 +21,8 @@ resource "aws_launch_template" "this" {
       db_endpoint  = var.db_endpoint
       db_username  = var.db_username
       db_password  = var.db_password
+      cw_agent_config = file("${path.module}/cloudwatch/amazon-cloudwatch-agent.json")
+
 
     })
   )
