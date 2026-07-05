@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "terraform_state" {
   bucket = "cloudshop-${var.environment}-terraform-state"
 
   tags = {
-    Name = "Terraform State Bucket"
+    Name = "${var.project_name}-${var.environment}-terraform-state"
   }
 }
 
@@ -45,4 +45,14 @@ resource "aws_dynamodb_table" "terraform_lock" {
   tags = {
     Name = "Terraform Lock Table"
   }
+}
+
+resource "aws_s3_bucket_public_access_block" "terraform_state" {
+
+  bucket = aws_s3_bucket.terraform_state.id
+
+  block_public_acls       = true
+  ignore_public_acls      = true
+  block_public_policy     = true
+  restrict_public_buckets = true
 }
