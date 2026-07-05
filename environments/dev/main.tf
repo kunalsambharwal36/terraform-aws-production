@@ -71,3 +71,9 @@ module "iam" {
 
   source = "../../modules/iam"
 }
+
+module "backend" {
+  source = "../../modules/backend"
+
+  environment = "dev"
+}
