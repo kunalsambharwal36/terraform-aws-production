@@ -96,5 +96,6 @@ module "eks" {
   min_size = var.min_size
 
   max_size = var.max_size
-
+  
+  environment = var.environment
 }

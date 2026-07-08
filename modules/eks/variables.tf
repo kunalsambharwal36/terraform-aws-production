@@ -29,3 +29,8 @@ variable "min_size" {
 variable "max_size" {
   type = number
 }
+
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+}
