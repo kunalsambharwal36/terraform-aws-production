@@ -89,7 +89,7 @@ module "eks" {
 
   private_subnet_ids = module.networking.private_subnet_ids
 
-  instance_types = var.instance_types
+  instance_types = var.instance_type
 
   desired_size = var.desired_size
 
@@ -97,5 +97,4 @@ module "eks" {
 
   max_size = var.max_size
 
-  environment = var.environment
 }

@@ -38,7 +38,7 @@ cluster_name    = "cloudshop-dev"
 
 cluster_version = "1.31"
 
-instance_types = [
+instance_type = [
   "t3.medium"
 ]
 
