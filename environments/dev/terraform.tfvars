@@ -28,7 +28,6 @@ private_subnets = {
 
 instance_name = "cloudshop"
 
-instance_type = "t3.micro"
 
 docker_image = "kunalsambharwal36/cloudshop-product-service:8a062a6b"
 
