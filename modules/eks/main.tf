@@ -17,7 +17,7 @@ module "eks" {
 
     default = {
 
-      instance_types = var.instance_type
+      instance_type = var.instance_type
 
       min_size     = var.min_size
       max_size     = var.max_size

@@ -57,6 +57,6 @@ variable "environment" {
   type = string
 }
 
-variable "instance_types" {
+variable "instance_type" {
   type = list(string)
 }
