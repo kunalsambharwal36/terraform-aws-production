@@ -1,12 +1,9 @@
 terraform {
-
-  backend "s3" {
-
-    bucket         = "cloudshop-dev-terraform-state"
-    key            = "dev/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "cloudshop-dev-terraform-lock"
-
-    encrypt = true
-  }
+  # backend "s3" {
+  #   bucket         = "terraform-state-bucket"
+  #   key            = "dev/terraform.tfstate"
+  #   region         = "us-east-1"
+  #   dynamodb_table = "terraform-locks"
+  #   encrypt        = true
+  # }
 }
