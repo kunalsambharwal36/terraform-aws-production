@@ -31,3 +31,19 @@ instance_name = "cloudshop"
 instance_type = "t3.micro"
 
 docker_image = "kunalsambharwal36/cloudshop-product-service:8a062a6b"
+
+environment     = "dev"
+
+cluster_name    = "cloudshop-dev"
+
+cluster_version = "1.31"
+
+instance_types = [
+  "t3.medium"
+]
+
+desired_size = 2
+
+min_size = 2
+
+max_size = 3

@@ -1,0 +1,8 @@
+cluster_name
+cluster_version
+vpc_id
+private_subnet_ids
+instance_type
+desired_size
+min_size
+max_size

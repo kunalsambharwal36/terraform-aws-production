@@ -31,3 +31,32 @@ variable "instance_type" {
 variable "docker_image" {
   type = string
 }
+
+
+variable "cluster_name" {
+  type = string
+}
+
+variable "cluster_version" {
+  type = string
+}
+
+variable "desired_size" {
+  type = number
+}
+
+variable "min_size" {
+  type = number
+}
+
+variable "max_size" {
+  type = number
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "instance_types" {
+  type = list(string)
+}
